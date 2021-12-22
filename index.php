@@ -1,3 +1,6 @@
+<!-- <?php
+include_once('./controlers/session.php');
+?> -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -60,7 +63,7 @@
                 </div>
                 <div class="sidebar__link">
                     <i class="fa fa-question"><img src="./assets/logout.png" alt="logout" width="20px" /></i>
-                    <Link to='/'>Log out</Link>
+                    <a href="./views/login.php">Log out</a>
                 </div>
             </div>
         </div>

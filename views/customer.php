@@ -10,8 +10,10 @@
     <link rel="stylesheet" href="../style.css">
    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Wassilli Co.</title>
-    <link rel="icon" href="./src/assets/logo.png"  type="image/x-icon"/>
+    
+    <title>Wassilli</title>
+    <!-- endinject -->
+    <link rel="shortcut icon" href="../assets/logo.png" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
@@ -61,7 +63,7 @@
                 </div>
                 <div class="sidebar__link">
                     <i class="fa fa-question"><img src="../assets/logout.png" alt="logout" width="20px" /></i>
-                    <Link to='/'>Log out</Link>
+                    <a href="signin.php">Log out</a>
                 </div>
             </div>
         </div>
