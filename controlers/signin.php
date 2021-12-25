@@ -12,7 +12,7 @@ session_start();
             $_SESSION['user'] = $username;
             header("Location: ../index.php");
         }
-
+        
 
     }
 ?>

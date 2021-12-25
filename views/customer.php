@@ -4,17 +4,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../style.css">
-   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <title>Wassilli</title>
     <!-- endinject -->
     <link rel="shortcut icon" href="../assets/logo.png" />
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
   </head>
   <body>
     <div class="cont">
@@ -22,7 +26,7 @@
     <div class="sidebar">
             <div class="sidebar__title">
                 <div class="sidebar__img">
-                <i class="fa fa-home"> <img src="../assets/logo.png" alt="dashboard_icon" width="50px" /></i>
+                <i class=""> <img src="../assets/logo.png" alt="dashboard_icon" width="50px" /></i>
                     <h1>Wassilli Co.</h1>
                 </div>
                 <i
@@ -33,43 +37,42 @@
 
             <div class="sidebar__menu">
                 <div class="sidebar__link active_menu_link">
-                    <i class="fa fa-home"> <img src="../assets/home.png" alt="dashboard_icon" width="20px" /></i>
+                    <i class=""> <img src="../assets/home.png" alt="dashboard_icon" width="20px" /></i>
                     <a href="../index.php">Dashboard</a>
                 </div>
                 <div class="sidebar__link">
-                    <i class="fa fa-user-secret" aria-hidden="true" > <img src="../assets/package.png" alt="stock" width="20px" /></i>
+                    <i class="" aria-hidden="true" > <img src="../assets/package.png" alt="stock" width="20px" /></i>
                     <Link to='/stock'>Employees</Link>
                 </div>
                 <div class="sidebar__link">
-                    <i class="fa fa-building-o"> <img src="../assets/money.png" alt="finan" width="20px" /></i>
+                    <i class=""> <img src="../assets/money.png" alt="finan" width="20px" /></i>
                     <a href="#">Customers</a>
                 </div>
                 <div class="sidebar__link">
-                    <i class="fa fa-wrench"><img src="../assets/report.png" alt="reports" width="20px" /></i>
+                    <i class=""><img src="../assets/report.png" alt="reports" width="20px" /></i>
                     <a href="#">Products</a>
                 </div>
 
                 <div class="sidebar__link">
-                    <i class="fa fa-handshake-o"><img src="../assets/clerk.png" alt="cashiers" width="20px" /></i>
+                    <i class=""><img src="../assets/clerk.png" alt="cashiers" width="20px" /></i>
                     <Link to='/cashier'>Orderes</Link>
                 </div>
                 <div class="sidebar__link">
-                    <i class="fa fa-question"><img src="../assets/logout.png" alt="logout" width="20px" /></i>
+                    <i class=""><img src="../assets/logout.png" alt="logout" width="20px" /></i>
                     <Link to='/'>Offices</Link>
                 </div>
                 <div class="sidebar__link">
-                    <i class="fa fa-question"><img src="../assets/logout.png" alt="logout" width="20px" /></i>
+                    <i class=""><img src="../assets/logout.png" alt="logout" width="20px" /></i>
                     <Link to='/'>Payments</Link>
                 </div>
                 <div class="sidebar__link">
-                    <i class="fa fa-question"><img src="../assets/logout.png" alt="logout" width="20px" /></i>
-                    <a href="signin.php">Log out</a>
+                    <i class=""><img src="../assets/logout.png" alt="logout" width="20px" /></i>
+                    <a href="login.php">Log out</a>
                 </div>
             </div>
         </div>
-          <div class="col-md-12">
+          <div class="col-sm-12">
               <div class="result">
-                
               </div>
           </div>
           
@@ -78,22 +81,58 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            load_data();
-            function load_data(page){
-                $.ajax({
-                    url:"./../controlers/load_data_customer.php",
-                    method:"POST",
-                    data:{page:page},
-                    success:function(data){
-                        $(".result").html(data);
-                    }
-                })
-            }
-             $(document).on('click', '.page-link', function(){
-            var page = $(this).attr("id");
-            page = parseInt(page);
-            load_data(page);
-        })
+                load_data();
+                function load_data(page,country, city,name){
+                    $.ajax({
+                        url:"./../controlers/load_data_customer.php", cache: false, timeout: 2000,
+                        method:"POST",
+                        data:{page:page, country: country,city:city, name:name},
+                        success:function(data){
+                            $(".result").html(data);
+                        }
+                    })
+                }
+                var page = 1;
+                var country = "";
+                var city = "";
+                $(document).on('click', '.page-link', function(){
+                page = $(this).attr("id");
+                page = parseInt(page);
+                load_data(page);
+            })
+            $(document).on('change', '#country', function(){
+                country = $(this).val();
+                // $('#product_data').DataTable().destroy();
+                if(country != ''){
+                    load_data(page,country);
+                }
+                else{
+                    load_data();
+                }
+            });
+            $(document).on('change', '#city', function(){
+                city = $(this).val();
+                // $('#product_data').DataTable().destroy();
+                if(city != ''){
+                    country = '';
+                    load_data(page,country,city);
+                }
+                else{
+                    load_data();
+                }
+            });
+            $(document).on('click', '#searchBtn', function(){
+                name = $('#searchName').val();
+                // $('#product_data').DataTable().destroy();
+                if(name != ''){
+                    country = '';
+                    city = '';
+                    load_data(page,country,city, name);
+                }
+                else{
+                    load_data();
+                }
+            });
         });
        
     </script>

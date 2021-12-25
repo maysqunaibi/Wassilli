@@ -6,7 +6,7 @@ body {
 
 .cont {
     display: grid;
-    grid-template-columns: 16% 76% 8%;
+    grid-template-columns: 16% 78% 6%;
 }
 .sidebar {
     background: linear-gradient(95.55deg, rgba(10, 57, 54, 100%) , rgba(75, 169, 165, 100%));
@@ -92,4 +92,10 @@ body {
     z-index: 9999 !important;
     left: 0 !important;
     position: absolute;
+}
+.pagination{
+    justify-content: center;
+}
+.span.page-link{
+    cursor: pointer;
 }
