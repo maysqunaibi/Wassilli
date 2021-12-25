@@ -153,7 +153,9 @@
                         success:function(){
                             $('#greenalert').removeClass('invisible');
                             $('#greenalert').addClass('visible');
-                            console.log("Hiiiiiiiii success")
+                            $( '#customerForm' ).each(function(){
+                                this.reset();
+                            });
                         },
                         error: function (xhr, ajaxOptions, thrownError) {
                             $('#rednalert').removeClass('invisible');
