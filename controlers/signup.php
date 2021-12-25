@@ -12,10 +12,10 @@ if(isset($_POST['register'])){
         print($query);
         if($query){
             
-            header("Location: ../index.php");
+            header("Location: ../views/index.php");
         }
     }else{
-        header("Location: ../views/signup.php");
+        header("Location: ../views/register.php");
         echo "Please Fill all the Feilds";
     }
 }

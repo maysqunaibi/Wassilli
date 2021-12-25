@@ -10,7 +10,7 @@ session_start();
         $count = mysqli_num_rows($query);
         if($count == 1){
             $_SESSION['user'] = $username;
-            header("Location: ../index.php");
+            header("Location: ../views/index.php");
         }
         
 

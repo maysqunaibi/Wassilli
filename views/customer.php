@@ -1,3 +1,6 @@
+<?php
+include_once('../session.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,7 +41,7 @@
             <div class="sidebar__menu">
                 <div class="sidebar__link active_menu_link">
                     <i class=""> <img src="../assets/home.png" alt="dashboard_icon" width="20px" /></i>
-                    <a href="../index.php">Dashboard</a>
+                    <a href="index.php">Dashboard</a>
                 </div>
                 <div class="sidebar__link">
                     <i class="" aria-hidden="true" > <img src="../assets/clerk.png" alt="stock" width="20px" /></i>
@@ -67,7 +70,7 @@
                 </div>
                 <div class="sidebar__link">
                     <i class=""><img src="../assets/logout.png" alt="logout" width="20px" /></i>
-                    <a href="login.php">Log out</a>
+                    <a href="../signout.php">Log out</a>
                 </div>
             </div>
         </div>
@@ -102,7 +105,6 @@
             })
             $(document).on('change', '#country', function(){
                 country = $(this).val();
-                // $('#product_data').DataTable().destroy();
                 if(country != ''){
                     load_data(page,country);
                 }
@@ -112,7 +114,6 @@
             });
             $(document).on('change', '#city', function(){
                 city = $(this).val();
-                // $('#product_data').DataTable().destroy();
                 if(city != ''){
                     country = '';
                     load_data(page,country,city);

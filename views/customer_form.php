@@ -1,10 +1,9 @@
 <?php
+    include_once('../session.php');
     include("../controlers/connection.php");
-
     //Get the foriegn key values from employee table;
     $empNumbersQuery = "SELECT * FROM `employees`";
     $employeeNumbers = mysqli_query($connection, $empNumbersQuery);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +45,7 @@
             <div class="sidebar__menu">
                 <div class="sidebar__link active_menu_link">
                     <i class=""> <img src="../assets/home.png" alt="dashboard_icon" width="20px" /></i>
-                    <a href="../index.php">Dashboard</a>
+                    <a href="index.php">Dashboard</a>
                 </div>
                 <div class="sidebar__link">
                     <i class="" aria-hidden="true" > <img src="../assets/clerk.png" alt="stock" width="20px" /></i>
@@ -75,7 +74,7 @@
                 </div>
                 <div class="sidebar__link">
                     <i class=""><img src="../assets/logout.png" alt="logout" width="20px" /></i>
-                    <a href="login.php">Log out</a>
+                    <a href="../signout.php">Log out</a>
                 </div>
             </div>
         </div>

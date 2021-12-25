@@ -1,3 +1,6 @@
+<?php
+include_once('../session.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,7 +39,7 @@
             <div class="sidebar__menu">
                 <div class="sidebar__link active_menu_link">
                     <i> <img src="../assets/home.png" alt="dashboard_icon" width="20px" /></i>
-                    <a href="../index.php">Dashboard</a>
+                    <a href="index.php">Dashboard</a>
                 </div>
                 <div class="sidebar__link">
                     <i> <img src="../assets/clerk.png" alt="stock" width="20px" /></i>
@@ -68,7 +71,7 @@
                 </div>
                 <div class="sidebar__link">
                     <i><img src="../assets/logout.png" alt="logout" width="20px" /></i>
-                    <a href="signin.php">Log out</a>
+                    <a href="../signout.php">Log out</a>
                 </div>
             </div>
         </div>

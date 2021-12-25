@@ -1,6 +1,6 @@
-<!-- <?php
-include_once('./controlers/session.php');
-?> -->
+<?php
+include_once('../session.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +10,7 @@ include_once('./controlers/session.php');
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="icon" href="./src/assets/logo.png"  type="image/x-icon"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -23,11 +23,10 @@ include_once('./controlers/session.php');
 </head>
   <body>
     <div class="cont">
-
     <div class="sidebar">
             <div class="sidebar__title">
                 <div class="sidebar__img">
-                <i> <img src="./assets/logo.png" alt="dashboard_icon" width="50px" /></i>
+                <i class=""> <img src="../assets/logo.png" alt="dashboard_icon" width="50px" /></i>
                     <h1>Wassilli Co.</h1>
                 </div>
                 <i
@@ -38,40 +37,44 @@ include_once('./controlers/session.php');
 
             <div class="sidebar__menu">
                 <div class="sidebar__link active_menu_link">
-                    <i > <img src="./assets/home.png" alt="dashboard_icon" width="20px" /></i>
+                    <i class=""> <img src="../assets/home.png" alt="dashboard_icon" width="20px" /></i>
                     <a href="index.php">Dashboard</a>
                 </div>
                 <div class="sidebar__link">
-                    <i> <img src="./assets/clerk.png" alt="stock" width="20px" /></i>
-                    <a href="views/employees.php">Employees</a>
+                    <i class="" aria-hidden="true" > <img src="../assets/clerk.png" alt="stock" width="20px" /></i>
+                    <a href="employees.php">Employees</a>
                 </div>
                 <div class="sidebar__link">
-                    <i> <img src="./assets/money.png" alt="finan" width="20px" /></i>
-                    <a href="views/customer.php">Customers</a>
+                    <i class=""> <img src="../assets/money.png" alt="finan" width="20px" /></i>
+                    <a href="customer.php">Customers</a>
                 </div>
                 <div class="sidebar__link">
-                    <i><img src="./assets/report.png" alt="reports" width="20px" /></i>
-                    <a href="views/products.php">Products</a>
+                    <i class=""><img src="../assets/report.png" alt="reports" width="20px" /></i>
+                    <a href="products.php">Products</a>
                 </div>
 
                 <div class="sidebar__link">
-                    <i><img src="./assets/package.png" alt="cashiers" width="20px" /></i>
-                    <a href="views/orders.php">Orderes</a>
+                    <i class=""><img src="../assets/package.png" alt="cashiers" width="20px" /></i>
+                    <a href="orders.php">Orderes</a>
                 </div>
                 <div class="sidebar__link">
-                <i class="fa fa-building-o"></i>
+                    <i class="fa fa-building-o"></i>
                     <Link to='/'>Offices</Link>
                 </div>
                 <div class="sidebar__link">
-                <i class="fa fa-usd"></i>
+                    <i class="fa fa-usd"></i>
                     <Link to='/'>Payments</Link>
                 </div>
                 <div class="sidebar__link">
-                    <i><img src="./assets/logout.png" alt="logout" width="20px" /></i>
-                    <a href="./views/login.php">Log out</a>
+                    <i class=""><img src="../assets/logout.png" alt="logout" width="20px" /></i>
+                    <a href="../signout.php">Log out</a>
                 </div>
             </div>
         </div>
+          <div class="col-sm-12">
+              <div class="result">
+              </div>
+          </div>
     </div>
 
   </body>
