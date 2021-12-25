@@ -33,7 +33,7 @@
 
     // $countryQuery = "SELECT * FROM category ORDER BY category_name ASC";
     // $countries = mysqli_query($connect, $query);
-    echo "<div><div class='d-inline-flex'><a href='add_user.php'><button class='btn btn-success my-3'> Add New User </button></a></div>
+    echo "<div><div class='d-inline-flex'><a href='customer_form.php'><button class='btn btn-success my-3'> Add New Customer </button></a></div>
     <div class='input-group mb-3 pl-8  w-25 d-inline-flex  my-4 '>
     <input type='text' id='searchName' class='form-control border-right-0 border' placeholder='Search By Name'>
     <span class='input-group-append'>
