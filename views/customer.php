@@ -18,7 +18,7 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
-<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
   </head>
   <body>
     <div class="cont">
@@ -41,28 +41,28 @@
                     <a href="../index.php">Dashboard</a>
                 </div>
                 <div class="sidebar__link">
-                    <i class="" aria-hidden="true" > <img src="../assets/package.png" alt="stock" width="20px" /></i>
-                    <Link to='/stock'>Employees</Link>
+                    <i class="" aria-hidden="true" > <img src="../assets/clerk.png" alt="stock" width="20px" /></i>
+                    <a href="employees.php">Employees</a>
                 </div>
                 <div class="sidebar__link">
                     <i class=""> <img src="../assets/money.png" alt="finan" width="20px" /></i>
-                    <a href="#">Customers</a>
+                    <a href="customer.php">Customers</a>
                 </div>
                 <div class="sidebar__link">
                     <i class=""><img src="../assets/report.png" alt="reports" width="20px" /></i>
-                    <a href="#">Products</a>
+                    <a href="products.php">Products</a>
                 </div>
 
                 <div class="sidebar__link">
-                    <i class=""><img src="../assets/clerk.png" alt="cashiers" width="20px" /></i>
-                    <Link to='/cashier'>Orderes</Link>
+                    <i class=""><img src="../assets/package.png" alt="cashiers" width="20px" /></i>
+                    <a href="orders.php">Orderes</a>
                 </div>
                 <div class="sidebar__link">
-                    <i class=""><img src="../assets/logout.png" alt="logout" width="20px" /></i>
+                    <i class="fa fa-building-o"></i>
                     <Link to='/'>Offices</Link>
                 </div>
                 <div class="sidebar__link">
-                    <i class=""><img src="../assets/logout.png" alt="logout" width="20px" /></i>
+                    <i class="fa fa-usd"></i>
                     <Link to='/'>Payments</Link>
                 </div>
                 <div class="sidebar__link">
@@ -123,7 +123,7 @@
             });
             $(document).on('click', '#searchBtn', function(){
                 name = $('#searchName').val();
-                // $('#product_data').DataTable().destroy();
+                
                 if(name != ''){
                     country = '';
                     city = '';

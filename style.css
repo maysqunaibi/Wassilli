@@ -63,11 +63,15 @@ body {
     margin-bottom: 5px;
 }
 
-.sidebar__link:hover {
+.sidebar__link:hover  {
     background: rgba(252, 252, 252, 0.3);
-
+    
 }
 
+.sidebar__link:hover > a {
+    text-decoration: none;
+    color: #dfdbdb;
+}
 /* .active_menu_link {
     background: rgba(252, 252, 252, 0.3);
     color: #ffffff;
@@ -97,5 +101,8 @@ body {
     justify-content: center;
 }
 .span.page-link{
-    cursor: pointer;
+    cursor:pointer;
 }
+.fa {
+    color: rgb(17, 17, 17);
+  }

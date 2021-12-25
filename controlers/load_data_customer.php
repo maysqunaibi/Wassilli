@@ -107,7 +107,7 @@
     if($page >= $total_pages){
         $next = $total_pages;
     }else{
-        $next = $page;
+        $next = $page +1;
     }
     if($page <= 1){
         $previous = 1; 
@@ -117,16 +117,16 @@
     $output .="</table> </div>
             <ul class='pagination'>
                 <li class='page-item'>
-                    <a class='page-link' id='".$previous." aria-label='Previous' href='index.php?page=".$previous."'>
+                    <a class='page-link' id='".$previous." aria-label='Previous' >
                         <span aria-hidden='true'>&laquo;</span>
                         <span class='sr-only'>Previous</span>
                      </a>
                 </li>";
-    for($i=1; $i <= $total_pages; $i++){
+    for($i=1; $i <= 4; $i++){
         $output .="<li class='page-item '><a class='page-link' id='".$i." href='index.php?page=".$i."'>".$i."</a></li>";
     }
     $output .="<li class='page-item'>
-                    <a class='page-link' id='".$next." aria-label='Next' href='index.php?page=".$next."'>
+                    <a class='page-link' id='".$next." aria-label='Next'>
                         <span aria-hidden='true'>&raquo;</span>
                         <span class='sr-only'>Next</span>
                     </a>
