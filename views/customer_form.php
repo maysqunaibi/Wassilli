@@ -66,11 +66,19 @@
                 </div>
                 <div class="sidebar__link">
                     <i class="fa fa-building-o"></i>
-                    <Link to='/'>Offices</Link>
+                    <a href="offices.php">Offices</a>
                 </div>
                 <div class="sidebar__link">
                     <i class="fa fa-usd"></i>
-                    <Link to='/'>Payments</Link>
+                    <a href="payments.php">Payments</a>
+                </div>
+                <div class="sidebar__link">
+                <i class=""><img src="../assets/package.png" alt="cashiers" width="20px" /></i>
+                <a href="orderdetails.php">OrderDetails</a>
+                </div>
+                <div class="sidebar__link">
+                <i class=""><img src="../assets/report.png" alt="reports" width="20px" /></i>
+                <a href="productlines.php">ProductLines</a>
                 </div>
                 <div class="sidebar__link">
                     <i class=""><img src="../assets/logout.png" alt="logout" width="20px" /></i>
@@ -94,10 +102,8 @@
              <input type="text" name="city" class="form-control" autocomplete="off" required>
 
              <label>Country</label>
-             <input type="text" name="country" class="form-control" autocomplete="off" required>
-
+             <input type="text" name="country" class="form-control" autocomplete="on" required>
              <label class="mt-2">Sales Reporter Employee Number</label>
-             <!-- <input type="text" name="salesRepEmployeeNumber" class="form-control" autocomplete="off" required> -->
              <select name="salesRepEmployeeNumber" id="salesRepEmployeeNumber" class="form-control" default="choose employee">
                 <?php 
                 while($row = mysqli_fetch_array($employeeNumbers))
@@ -142,7 +148,9 @@
           </div>
     </div>
     <script type="text/javascript">
+
         $(document).ready(function() {
+         
             $(document).on('submit','#customerForm',function(event){
                     event.preventDefault();
                     $.ajax({
@@ -162,6 +170,8 @@
                         }
                     });
             })
+
+            
            
         });
        

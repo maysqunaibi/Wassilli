@@ -58,13 +58,14 @@
     if($page >= $total_pages){
         $next = $total_pages;
     }else{
-        $next = $page+1;
+        $next = $page +1;
     }
     if($page <= 1){
         $previous = 1; 
     }else{
         $previous = $page - 1;
     }
+    $j = $total_pages>4? 4:$total_pages;
     $output .="</table><nav>
             <ul class='pagination'>
                 <li class='page-item'>
@@ -73,7 +74,7 @@
                         <span class='sr-only'>Previous</span>
                      </a>
                 </li>";
-    for($i=1; $i <= 4; $i++){
+    for($i=1; $i <= $j; $i++){
         $output .="<li class='page-item '><a class='page-link' id='".$i." href='index.php?page=".$i."'>".$i."</a></li>";
     }
     $output .="<li class='page-item'>

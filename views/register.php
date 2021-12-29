@@ -112,8 +112,7 @@
         </div>
       </div>
       <div
-        class="footer text-center mt-4 py-4 font-weight-light font-size-small"
-      >
+        class="footer text-center mt-4 py-4 font-weight-light font-size-small">
         Copyright © 2021 - All Rights Reserved Zaki Team BU.
       </div>
     </div>

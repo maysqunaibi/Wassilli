@@ -1,6 +1,3 @@
-<?php
-include_once('../session.php');
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,7 +8,6 @@ include_once('../session.php');
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../style.css">
-    <link rel="shortcut icon" href="../assets/logo.png" />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -23,7 +19,6 @@ include_once('../session.php');
   </head>
   <body>
     <div class="cont">
-
     <div class="sidebar">
             <div class="sidebar__title">
                 <div class="sidebar__img">
@@ -44,7 +39,6 @@ include_once('../session.php');
                 <div class="sidebar__link">
                     <i> <img src="../assets/clerk.png" alt="stock" width="20px" /></i>
                     <a href="employees.php">Employees</a>
-
                 </div>
                 <div class="sidebar__link">
                     <i> <img src="../assets/money.png" alt="finan" width="20px" /></i>
@@ -53,21 +47,19 @@ include_once('../session.php');
                 <div class="sidebar__link">
                     <i><img src="../assets/report.png" alt="reports" width="20px" /></i>
                     <a href="products.php">Products</a>
-                    
                 </div>
 
                 <div class="sidebar__link">
                     <i><img src="../assets/package.png" alt="cashiers" width="20px" /></i>
                     <a href="orders.php">Orderes</a>
-
                 </div>
                 <div class="sidebar__link">
                 <i class="fa fa-building-o"></i>
                 <a href="offices.php">Offices</a>
                 </div>
                 <div class="sidebar__link">
-                    <i  class="fa fa-usd"></i>
-                    <a href="payments.php">Payments</a>
+                <i class="fa fa-usd"></i>
+                <a href="payments.php">Payments</a>
                 </div>
                 <div class="sidebar__link">
                 <i class=""><img src="../assets/package.png" alt="cashiers" width="20px" /></i>
@@ -88,7 +80,6 @@ include_once('../session.php');
                 
               </div>
           </div>
-          
     
     <!-- <script src="jquery-3.5.1.min.js"></script> -->
 
@@ -97,7 +88,7 @@ include_once('../session.php');
             load_data();
             function load_data(page){
                 $.ajax({
-                    url:"./../controlers/load_data_products.php",
+                    url:"./../controlers/load_data_productlines.php",
                     method:"POST",
                     data:{page:page},
                     success:function(data){

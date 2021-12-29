@@ -25,7 +25,7 @@
         <th>Buy Price</th>
         <th>Action</th>
     </tr>";
-    echo "<a href='../controlers/add_user_products.php'><button class='btn btn-success my-3'> Add New User </button></a>";
+    echo "<a href='product_form.php'><button class='btn btn-success my-3'> Add New User </button></a>";
     if(mysqli_num_rows($res) < 0 ){
         $output .= "
             <tr>

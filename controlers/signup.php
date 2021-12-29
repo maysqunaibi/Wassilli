@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['register'])){
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
     $email = $_POST['email'];
     $country = $_POST['country'];
 

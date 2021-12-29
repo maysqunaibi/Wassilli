@@ -62,11 +62,19 @@ include_once('../session.php');
                 </div>
                 <div class="sidebar__link">
                 <i class="fa fa-building-o"></i>
-                    <Link to='/'>Offices</Link>
+                <a href="offices.php">Offices</a>
                 </div>
                 <div class="sidebar__link">
                 <i class="fa fa-usd"></i>
-                    <Link to='/'>Payments</Link>
+                <a href="payments.php">Payments</a>
+                </div>
+                <div class="sidebar__link">
+                <i class=""><img src="../assets/package.png" alt="cashiers" width="20px" /></i>
+                <a href="orderdetails.php">OrderDetails</a>
+                </div>
+                <div class="sidebar__link">
+                <i class=""><img src="../assets/report.png" alt="reports" width="20px" /></i>
+                <a href="productlines.php">ProductLines</a>
                 </div>
                 <div class="sidebar__link">
                     <i><img src="../assets/logout.png" alt="logout" width="20px" /></i>

@@ -1,5 +1,9 @@
 <?php
-include_once('../session.php');
+    include_once('../session.php');
+    include("../controlers/connection.php");
+    //Get the foriegn key values from employee table;
+    $customerNumbersQuery = "SELECT * FROM `customers`";
+    $customerNumbers = mysqli_query($connection, $customerNumbersQuery);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +19,7 @@ include_once('../session.php');
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-    <title>Wassilli</title>
+    <title>Wassilli- add new customer</title>
     <!-- endinject -->
     <link rel="shortcut icon" href="../assets/logo.png" />
     
@@ -66,7 +70,7 @@ include_once('../session.php');
                 </div>
                 <div class="sidebar__link">
                     <i class="fa fa-usd"></i>
-                    <a href="payments.php">Payments</a>
+                    <Link to='/'>Payments</Link>
                 </div>
                 <div class="sidebar__link">
                 <i class=""><img src="../assets/package.png" alt="cashiers" width="20px" /></i>
@@ -83,69 +87,88 @@ include_once('../session.php');
             </div>
         </div>
           <div class="col-sm-12">
-              <div class="result">
-              </div>
-          </div>
-          
-    
-    <!-- <script src="jquery-3.5.1.min.js"></script> -->
+          <div class="container">
+     <div class="col-md-12">
+       <div class="row">
+         <div class="col-md-4"></div>
+         <div class="col-md-4 jumbotron my-5">
+           <h4 class="text-center my-2">Add New Order</h4>
+           <form method="POST" id="customerForm">
+             
+             <label>Order Date</label>
+             <!-- <input type="text" name="orderDate" class="form-control" autocomplete="off" required> -->
+             <input class="datepicker" data-date-format="mm/dd/yyyy">
 
+
+             <label class="mt-2">customer Number</label>
+             <!-- <input type="text" name="salesRepEmployeeNumber" class="form-control" autocomplete="off" required> -->
+             <select name="customerNumber" id="customerNumber" class="form-control" default="choose employee">
+                <?php 
+                while($row = mysqli_fetch_array($customerNumbers))
+                {
+                  echo '<option value="'.$row["customerNumber"].'">'.$row["customerNumber"].'</option>';
+                  
+                }
+                ?>
+                </select>
+             
+             <input type="submit" id="create" name="add_user_order" class="btn btn-success my-2" value="Add Order" >
+
+           </form>
+         </div>
+        <div class='sticky-top invisible' id="greenalert">
+            <div class='col-md-8 position-fixed top-0 left-0 py-4'>
+            <div class='alert alert-success alert-dismissible fade show w-50' role='alert'>
+            <strong>You have successfully add new Customer. </strong>Check customers table.
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span>
+            </button>
+            </div>
+            </div>
+        </div>
+        <div class='sticky-top invisible' id="redalert">
+            <div class='col-md-8 position-fixed top-0 left-0 py-4'>
+        <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+            <strong>Faild to add new Customer. </strong>Please Fill all the feilds.
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span>
+            </button>
+        </div>
+         
+       </div>
+       </div>
+        </div>
+     </div>
+
+   </div>
+          </div>
+    </div>
     <script type="text/javascript">
         $(document).ready(function() {
-                load_data();
-                function load_data(page,country, city,name){
+            $(document).on('submit','#customerForm',function(event){
+                    event.preventDefault();
                     $.ajax({
-                        url:"./../controlers/load_data_customer.php", cache: false, timeout: 2000,
-                        method:"POST",
-                        data:{page:page, country: country,city:city, name:name},
-                        success:function(data){
-                            $(".result").html(data);
+                        type: 'post',
+                        url: "./../controlers/add_customer.php", cache: false, timeout: 2000,
+                        data: $('form').serialize(),
+                        success:function(){
+                            $('#greenalert').removeClass('invisible');
+                            $('#greenalert').addClass('visible');
+                            $( '#customerForm' ).each(function(){
+                                this.reset();
+                            });
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            $('#rednalert').removeClass('invisible');
+                            $('#rednalert').addClass('visible');
                         }
-                    })
-                }
-                var page = 1;
-                var country = "";
-                var city = "";
-                $(document).on('click', '.page-link', function(){
-                page = $(this).attr("id");
-                page = parseInt(page);
-                load_data(page);
+                    });
             })
-            $(document).on('change', '#country', function(){
-                country = $(this).val();
-                if(country != ''){
-                    load_data(page,country);
-                }
-                else{
-                    load_data();
-                }
-            });
-            $(document).on('change', '#city', function(){
-                city = $(this).val();
-                if(city != ''){
-                    country = '';
-                    load_data(page,country,city);
-                }
-                else{
-                    load_data();
-                }
-            });
-            $(document).on('click', '#searchBtn', function(){
-                name = $('#searchName').val();
-                
-                if(name != ''){
-                    country = '';
-                    city = '';
-                    load_data(page,country,city, name);
-                }
-                else{
-                    load_data();
-                }
-            });
+            $('.datepicker').datepicker({
+    startDate: '-3d'
+});
         });
        
     </script>
-    </div>
-
   </body>
 </html>
