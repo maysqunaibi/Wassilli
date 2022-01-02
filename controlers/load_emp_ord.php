@@ -1,6 +1,6 @@
 <?php
     include("connection.php");
-    $limit = 5;
+    $limit = 6;
     $page = 1;
     if(isset($_POST['page'])){
         $page = $_POST['page'];
@@ -8,25 +8,22 @@
         $page = 1;
     }
     $start_from = ($page - 1) * $limit;
+    $query = "SELECT employees.lastName, employees.firstName, orders.orderNumber, orders.orderDate FROM `employees`, `customers`,`orders` WHERE employees.employeeNumber = customers.salesRepEmployeeNumber AND customers.customerNumber = orders.customerNumber LIMIT  $start_from, $limit";;
 
-    $query = "SELECT * FROM employees LIMIT  $start_from, $limit";
     $res = mysqli_query($connection,$query) or die("Error in Selecting " . mysqli_error($connection));
 
     $count = mysqli_query($connection, "SELECT count(*) AS total_data from employees");
     
     $output = "";
-    $output .= "<table class='table table-bordered table-striped'>
+    $output .= "<table class='table table-bordered table-striped mt-4'>
     <tr>
-        <th>EmployeeNumber</th>
         <th>LastName</th>
         <th>FirstName</th>
-        <th>OfficeCode</th>
-        <th>ReportsTo</th>
-        <th>JobTitle</th>
+        <th>Order Number</th>
+        <th>Order Date</th>
         <th>Action</th>
        
     </tr>";
-    echo "<a href='add_user.php'><button class='btn btn-success my-3'> Add New User </button></a>";
     if(mysqli_num_rows($res) < 0 ){
         $output .= "
             <tr>
@@ -35,17 +32,15 @@
     }else{
         while($row = mysqli_fetch_array($res)){
         $output .="<tr>
-        <td>".$row['employeeNumber']."</td>
         <td>".$row['lastName']."</td>
         <td>".$row['firstName']."</td>
-        <td>".$row['officeCode']."</td>
-        <td>".$row['reportsTo']."</td>
-        <td>".$row['jobTitle']."</td>
+        <td>".$row['orderNumber']."</td>
+        <td>".$row['orderDate']."</td>
         <td> <div class='col-md-12'>
              <div class='row'> 
              <div class=''>
-               <button id= '".$row['employeeNumber']."' class='btn btn-success my-3'>Edit</button>
-               <button id= '".$row['employeeNumber']."' class='btn btn-danger my-3'>Delete</button>
+               <button  class='btn btn-success my-3'>Edit</button>
+               <button class='btn btn-danger my-3'>Delete</button>
             </div>
             </div> 
             </div>

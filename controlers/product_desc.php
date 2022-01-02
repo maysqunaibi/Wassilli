@@ -1,6 +1,6 @@
 <?php
     include("connection.php");
-    $limit = 5;
+    $limit = 3;
     $page = 1;
     if(isset($_POST['page'])){
         $page = $_POST['page'];
@@ -8,44 +8,56 @@
         $page = 1;
     }
     $start_from = ($page - 1) * $limit;
-
-    $query = "SELECT * FROM employees LIMIT  $start_from, $limit";
+    if(isset($_POST['desc']) && $_POST['desc'] != null){
+        $keywords = $_POST['desc'];
+        $keywordslength = count($keywords);
+        $query = "SELECT * FROM products WHERE productDescription ";
+        for($x = 0; $x < $keywordslength; $x++){
+            if($x == $keywordslength -1){
+            $query .= " LIKE '%".$keywords[$x]."%'";
+            }else{
+                $query .= " LIKE '%".$keywords[$x]."%' OR productDescription ";
+            }
+        }
+        
+    }else{
+        $query = "SELECT * FROM products LIMIT  $start_from, $limit";
+    }
     $res = mysqli_query($connection,$query) or die("Error in Selecting " . mysqli_error($connection));
 
-    $count = mysqli_query($connection, "SELECT count(*) AS total_data from employees");
+    $count = mysqli_query($connection, "SELECT count(*) AS total_data from products");
     
     $output = "";
     $output .= "<table class='table table-bordered table-striped'>
     <tr>
-        <th>EmployeeNumber</th>
-        <th>LastName</th>
-        <th>FirstName</th>
-        <th>OfficeCode</th>
-        <th>ReportsTo</th>
-        <th>JobTitle</th>
+        <th>Code</th>
+        <th>Product Name</th>
+        <th>Product Line</th>
+        <th>product Description</th>
+        <th>Quantity In Stock</th>
+        <th>Buy Price</th>
         <th>Action</th>
-       
     </tr>";
-    echo "<a href='add_user.php'><button class='btn btn-success my-3'> Add New User </button></a>";
+  
     if(mysqli_num_rows($res) < 0 ){
         $output .= "
             <tr>
-                <td colspan='6' align='center'>No Data </td>
+                <td colspan='8' align='center'>No Data </td>
             </tr>";
     }else{
         while($row = mysqli_fetch_array($res)){
         $output .="<tr>
-        <td>".$row['employeeNumber']."</td>
-        <td>".$row['lastName']."</td>
-        <td>".$row['firstName']."</td>
-        <td>".$row['officeCode']."</td>
-        <td>".$row['reportsTo']."</td>
-        <td>".$row['jobTitle']."</td>
-        <td> <div class='col-md-12'>
+        <td>".$row['productCode']."</td>
+        <td>".$row['productName']."</td>
+        <td>".$row['productLine']."</td>
+        <td>".$row['productDescription']."</td>
+        <td>".$row['quantityInStock']."</td>
+        <td>".$row['buyPrice']."</td>
+        <td><div class='col-md-12'>
              <div class='row'> 
              <div class=''>
-               <button id= '".$row['employeeNumber']."' class='btn btn-success my-3'>Edit</button>
-               <button id= '".$row['employeeNumber']."' class='btn btn-danger my-3'>Delete</button>
+               <button id= '".$row['productName']."' class='btn btn-success my-3'>Edit</button>
+               <button id= '".$row['productName']."' class='btn btn-danger my-3'>Delete</button>
             </div>
             </div> 
             </div>
@@ -53,8 +65,8 @@
     </tr> ";
     }
     }
-    $page_query = "SELECT * FROM employees";
-    $page_result = mysqli_query($connection,$page_query);
+    $query2 = "SELECT * FROM products";
+    $page_result = mysqli_query($connection,$query2);
     $total_records = mysqli_num_rows($page_result);
     $total_pages = ceil($total_records/$limit);
     if($page >= $total_pages){
