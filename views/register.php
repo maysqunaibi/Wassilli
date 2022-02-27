@@ -113,7 +113,7 @@
       </div>
       <div
         class="footer text-center mt-4 py-4 font-weight-light font-size-small">
-        Copyright © 2021 - All Rights Reserved Zaki Team BU.
+        Copyright © 2021 - All Rights Reserved Wassilli - BU.
       </div>
     </div>
     <script src="vendors/base/vendor.bundle.base.js"></script>

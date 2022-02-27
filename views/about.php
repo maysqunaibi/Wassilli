@@ -75,14 +75,6 @@ include_once('../session.php');
           <a href="payments.php">Payments</a>
         </div>
         <div class="sidebar__link">
-          <i class=""><img src="../assets/package.png" alt="cashiers" width="20px" /></i>
-          <a href="orderdetails.php">OrderDetails</a>
-        </div>
-        <div class="sidebar__link">
-          <i class=""><img src="../assets/report.png" alt="reports" width="20px" /></i>
-          <a href="productlines.php">ProductLines</a>
-        </div>
-        <div class="sidebar__link">
           <i class=""><img src="../assets/logout.png" alt="logout" width="20px" /></i>
           <a href="../signout.php">Log out</a>
         </div>
@@ -98,7 +90,7 @@ include_once('../session.php');
           <div class="card-body">
             <blockquote class="blockquote mb-0">
               <p> This Admin Panel was created to allow system administrators access the database and generate reports.
-                     The Zaki Database architecture would provide
+                     The Database architecture would provide
                     a more efficient data system for reporting and retrieving
                      data derived from ZK system contributors.
                      The system's database design is made up
@@ -107,7 +99,7 @@ include_once('../session.php');
                      unique identifiers to unique keys,
                      and relationships to foreign keys.
                      Tables in the database: (Employees, customers, Offices,
-                     Products, ProductLines, Orders, OrderLines, Payments).</p>
+                     Products, Orders, Payments).</p>
               <footer class="blockquote-footer">Mais qunaibi <cite title="Source Title">Team Memmber</cite>
               </footer>
             </blockquote>

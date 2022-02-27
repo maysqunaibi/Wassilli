@@ -75,14 +75,7 @@ include_once('../session.php');
                     <i class="fa fa-usd"></i>
                     <a href="payments.php">Payments</a>
                 </div>
-                <div class="sidebar__link">
-                    <i class=""><img src="../assets/package.png" alt="cashiers" width="20px" /></i>
-                    <a href="orderdetails.php">OrderDetails</a>
-                </div>
-                <div class="sidebar__link">
-                    <i class=""><img src="../assets/report.png" alt="reports" width="20px" /></i>
-                    <a href="productlines.php">ProductLines</a>
-                </div>
+          
                 <div class="sidebar__link">
                     <i class=""><img src="../assets/logout.png" alt="logout" width="20px" /></i>
                     <a href="../signout.php">Log out</a>
